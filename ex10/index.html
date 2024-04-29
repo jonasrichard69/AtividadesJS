@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média dos Elementos de uma Matriz</title>
+</head>
+
+<body>
+    <h1>Média dos Elementos de uma Matriz</h1>
+    <p>Digite os elementos da matriz separados por vírgula e ponto e vírgula para as linhas:</p>
+    <textarea id="matrizInput" rows="4" cols="50"></textarea>
+    <button onclick="calcularMediaMatriz()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMediaMatriz() {
+            const matrizInput = document.getElementById('matrizInput').value;
+            const linhas = matrizInput.split(';');
+
+            const matriz = [];
+            let totalElementos = 0;
+            let soma = 0;
+
+            for (let i = 0; i < linhas.length; i++) {
+                const elementos = linhas[i].split(',').map(Number);
+                matriz.push(elementos);
+                totalElementos += elementos.length;
+                soma += elementos.reduce((acc, num) => acc + num, 0);
+            }
+
+            const media = soma / totalElementos;
+
+            document.getElementById('resultado').textContent = `A média dos elementos da matriz é: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>

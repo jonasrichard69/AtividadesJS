@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média</title>
+</head>
+
+<body>
+    <h1>Calcular Média</h1>
+    <p>Digite os números separados por vírgula para calcular a média:</p>
+    <input type="text" id="numerosInput">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMedia() {
+            const numerosInput = document.getElementById('numerosInput').value;
+            const numeros = numerosInput.split(',').map(Number); // Converte os números de texto para números
+
+            if (numeros.length === 0) {
+                document.getElementById('resultado').textContent = 'Digite pelo menos um número.';
+                return;
+            }
+
+            const soma = numeros.reduce((acc, num) => acc + num, 0);
+            const media = soma / numeros.length;
+
+            document.getElementById('resultado').textContent = `A média é: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>

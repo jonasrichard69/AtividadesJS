@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Soma da Matriz</title>
+</head>
+
+<body>
+    <h1>Calcular Soma da Matriz</h1>
+    <p>Digite os elementos da matriz separados por vírgula e ponto e virgula:</p>
+    <textarea id="matrizInput" rows="4" cols="50"></textarea>
+    <button onclick="calcularSomaMatriz()">Calcular Soma</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSomaMatriz() {
+            const matrizInput = document.getElementById('matrizInput').value;
+            const linhas = matrizInput.split(';');
+
+            const matriz = [];
+            for (let i = 0; i < linhas.length; i++) {
+                const elementos = linhas[i].split(',').map(Number);
+                matriz.push(elementos);
+            }
+
+            let soma = 0;
+            for (let i = 0; i < matriz.length; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    soma += matriz[i][j];
+                }
+            }
+
+            document.getElementById('resultado').textContent = `A soma dos elementos da matriz é: ${soma}`;
+        }
+    </script>
+</body>
+
+</html>

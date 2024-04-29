@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número em um Vetor</title>
+</head>
+
+<body>
+    <h1>Maior Número em um Vetor</h1>
+    <p>Digite os números separados por vírgula:</p>
+    <input type="text" id="numerosInput">
+    <button onclick="encontrarMaiorNumero()">Encontrar Maior Número</button>
+    <p id="resultado"></p>
+
+    <script>
+        function encontrarMaiorNumero() {
+            const numerosInput = document.getElementById('numerosInput').value;
+            const numeros = numerosInput.split(',').map(Number);
+
+            if (numeros.length === 0) {
+                document.getElementById('resultado').textContent = 'Digite pelo menos um número.';
+                return;
+            }
+
+            const maiorNumero = Math.max(...numeros);
+
+            document.getElementById('resultado').textContent = `O maior número é: ${maiorNumero}`;
+        }
+    </script>
+</body>
+
+</html>
